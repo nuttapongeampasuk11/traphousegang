@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRAPHOUSE & NAYGAO | Official Roster</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/3J0ZrvzN/825310048-455736171149778-6178008764780694098-n.png">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Kanit', sans-serif;
+            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)), url('https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=1920&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #ffffff;
+            min-height: 100vh;
+            user-select: none;
+            -webkit-user-select: none;
+            margin: 0;
+        }
+        input {
+            -webkit-user-select: text;
+            user-select: text;
+        }
+        .font-header {
+            font-family: 'Orbitron', 'Kanit', sans-serif;
+        }
+        .card-btn {
+            background: rgba(18, 18, 18, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-btn:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
+        }
+        .member-card {
+            background: rgba(18, 18, 18, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        .member-card:hover {
+            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(26, 26, 26, 0.95);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="flex flex-col justify-between">
+
+    <!-- ==================== หน้าที่ 1: HOME (หน้าแรก) ==================== -->
+    <div id="viewHome" class="min-h-screen flex flex-col items-center justify-between py-8 px-4">
+        <div class="text-center mt-4">
+            <p class="text-gray-400 text-[10px] md:text-xs tracking-[0.5em] uppercase font-mono drop-shadow-md">EST. 2026</p>
+        </div>
+
+        <div class="text-center flex flex-col items-center justify-center my-auto w-full max-w-2xl space-y-6">
+            <!-- ส่วนหัวข้อและซับไตเติล -->
+            <div class="space-y-1.5">
+                <h1 class="text-4xl md:text-6xl font-black tracking-[0.2em] uppercase text-white font-header drop-shadow-lg">
+                    TRAPHOUSE
+                </h1>
+                <p class="text-[11px] md:text-sm text-gray-400 tracking-[0.3em] font-mono uppercase">
+                    MADE FOR THOSE WHO DON'T FIT IN
+                </p>
+            </div>
+
+            <!-- 📌 พื้นที่เว้นตรงกลางไว้ใส่โลโก้อลังการ -->
+            <div id="logoContainer" class="my-6 flex items-center justify-center min-h-[160px] md:min-h-[220px]">
+                <!-- ตัวอย่างใส่โลโก้: <img src="https://i.postimg.cc/3J0ZrvzN/825310048-455736171149778-6178008764780694098-n.png" class="h-40 object-contain drop-shadow-[0_0_20px_rgba(255,255,255,0.25)]"> -->
+            </div>
+
+            <!-- ปุ่มกดเลือกแก๊ง -->
+            <div class="grid grid-cols-2 gap-4 md:gap-6 w-full max-w-lg">
+                <button onclick="switchView('traphouse', true); startMusic();" class="card-btn py-5 px-6 rounded-2xl text-center flex flex-col items-center justify-center group cursor-pointer">
+                    <span class="text-lg md:text-xl font-bold tracking-widest text-white font-header uppercase group-hover:text-amber-400 transition">
+                        TRAPHOUSE
+                    </span>
+                    <span class="text-[10px] md:text-xs text-gray-400 tracking-[0.3em] font-mono mt-1 uppercase">
+                        MEMBER
+                    </span>
+                </button>
+
+                <button onclick="switchView('naygao', true); startMusic();" class="card-btn py-5 px-6 rounded-2xl text-center flex flex-col items-center justify-center group cursor-pointer">
+                    <span class="text-lg md:text-xl font-bold tracking-widest text-white font-header uppercase group-hover:text-blue-400 transition">
+                        NAYGAO
+                    </span>
+                    <span class="text-[10px] md:text-xs text-gray-400 tracking-[0.3em] font-mono mt-1 uppercase">
+                        PARTNER
+                    </span>
+                </button>
+            </div>
+        </div>
+
+        <footer class="mb-2 text-center text-[10px] text-gray-400 tracking-widest uppercase font-mono drop-shadow-md">
+            © 2026 TRAPHOUSE GANG. ALL RIGHTS RESERVED.
+        </footer>
+    </div>
+
+
+    <!-- ==================== หน้าที่ 2: TRAPHOUSE ROSTER ==================== -->
+    <div id="viewTraphouse" class="hidden min-h-screen pb-32 px-6 pt-12 max-w-6xl mx-auto w-full">
+        <div class="mb-6">
+            <button onclick="switchView('home', true)" class="inline-flex items-center gap-2 text-xs text-gray-300 hover:text-white transition tracking-wider uppercase bg-white/10 hover:bg-white/20 px-4 py-2.5 rounded-xl border border-white/25 cursor-pointer shadow-lg">
+                <i class="fa-solid fa-arrow-left"></i> หน้าแรก
+            </button>
+        </div>
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-7xl font-black tracking-widest text-white uppercase font-header drop-shadow-md">
+                TRAPHOUSE GANG
+            </h1>
+            <p class="text-gray-400 text-xs tracking-[0.4em] uppercase mt-3">
+                FIVEM OFFICIAL GANG ROSTER
+            </p>
+            <div class="mt-8 max-w-md mx-auto relative">
+                <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
+                <input type="text" id="searchRoster" placeholder="ค้นหารายชื่อสมาชิก..." 
+                    class="w-full pl-11 pr-4 py-3 bg-black/50 border border-white/20 rounded-xl text-sm text-gray-200 placeholder-gray-400 focus:outline-none focus:border-white/50 focus:bg-black/70 transition shadow-inner">
+            </div>
+        </header>
+
+        <main class="space-y-12">
+            <section>
+                <div class="flex items-baseline gap-3 mb-4 pb-2 border-b border-white/15">
+                    <h2 id="titleFounder" class="text-xl md:text-3xl font-black tracking-wider text-white uppercase font-header">FOUNDERS (0)</h2>
+                </div>
+                <div id="gridFounder" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="col-span-full text-gray-400 text-xs py-4">กำลังโหลดข้อมูล...</div>
+                </div>
+            </section>
+
+            <section>
+                <div class="flex items-baseline gap-3 mb-4 pb-2 border-b border-white/15">
+                    <h2 id="titleLeader" class="text-xl md:text-3xl font-black tracking-wider text-white uppercase font-header">LEADERS (0)</h2>
+                </div>
+                <div id="gridLeader" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="col-span-full text-gray-400 text-xs py-4">กำลังโหลดข้อมูล...</div>
+                </div>
+            </section>
+
+            <section>
+                <div class="flex items-baseline gap-3 mb-4 pb-2 border-b border-white/15">
+                    <h2 id="titleMember" class="text-xl md:text-3xl font-black tracking-wider text-white uppercase font-header">MEMBERS (0)</h2>
+                </div>
+                <div id="gridMember" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="col-span-full text-gray-400 text-xs py-4">กำลังโหลดข้อมูล...</div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+
+    <!-- ==================== หน้าที่ 3: NAYGAO PARTNERS ==================== -->
+    <div id="viewNaygao" class="hidden min-h-screen pb-32 px-6 pt-12 max-w-6xl mx-auto w-full">
+        <div class="mb-6">
+            <button onclick="switchView('home', true)" class="inline-flex items-center gap-2 text-xs text-gray-300 hover:text-white transition tracking-wider uppercase bg-white/10 hover:bg-white/20 px-4 py-2.5 rounded-xl border border-white/25 cursor-pointer shadow-lg">
+                <i class="fa-solid fa-arrow-left"></i> หน้าแรก
+            </button>
+        </div>
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-7xl font-black tracking-widest text-white uppercase font-header drop-shadow-md">
+                NAYGAO PARTNERS
+            </h1>
+            <p class="text-gray-400 text-xs tracking-[0.4em] uppercase mt-3">
+                OFFICIAL ALLIED GANG ROSTER
+            </p>
+            <div class="mt-8 max-w-md mx-auto relative">
+                <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
+                <input type="text" id="searchNaygao" placeholder="ค้นหารายชื่อ Partner..." 
+                    class="w-full pl-11 pr-4 py-3 bg-black/50 border border-white/20 rounded-xl text-sm text-gray-200 placeholder-gray-400 focus:outline-none focus:border-white/50 focus:bg-black/70 transition shadow-inner">
+            </div>
+        </header>
+
+        <main class="space-y-12">
+            <section>
+                <div class="flex items-baseline gap-3 mb-4 pb-2 border-b border-white/15">
+                    <h2 id="naygaoTitleFounder" class="text-xl md:text-3xl font-black tracking-wider text-white uppercase font-header">FOUNDERS (0)</h2>
+                </div>
+                <div id="naygaoGridFounder" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="col-span-full text-gray-400 text-xs py-4">กำลังโหลดข้อมูล...</div>
+                </div>
+            </section>
+
+            <section>
+                <div class="flex items-baseline gap-3 mb-4 pb-2 border-b border-white/15">
+                    <h2 id="naygaoTitleLeader" class="text-xl md:text-3xl font-black tracking-wider text-white uppercase font-header">LEADERS (0)</h2>
+                </div>
+                <div id="naygaoGridLeader" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="col-span-full text-gray-400 text-xs py-4">กำลังโหลดข้อมูล...</div>
+                </div>
+            </section>
+
+            <section>
+                <div class="flex items-baseline gap-3 mb-4 pb-2 border-b border-white/15">
+                    <h2 id="naygaoTitleMember" class="text-xl md:text-3xl font-black tracking-wider text-white uppercase font-header">MEMBERS (0)</h2>
+                </div>
+                <div id="naygaoGridMember" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="col-span-full text-gray-400 text-xs py-4">กำลังโหลดข้อมูล...</div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+
+    <!-- ==================== MUSIC PLAYER ==================== -->
+    <audio id="bgAudio" loop src="https://files.catbox.moe/hpnvp6.mp3"></audio>
+
+    <!-- 1. ป๊อปอัพเครื่องเล่นเพลงแบบขยาย -->
+    <div id="expandedPlayer" class="hidden fixed bottom-6 right-6 z-50 w-80 bg-black/90 backdrop-blur-xl p-5 rounded-2xl border border-white/15 shadow-2xl transition-all duration-300">
+        <div class="flex items-center justify-between mb-4 text-[11px] font-mono tracking-wider">
+            <button onclick="togglePlayerView()" class="text-gray-400 hover:text-white transition flex items-center gap-1.5 cursor-pointer uppercase">
+                <i class="fa-solid fa-xmark text-xs"></i> HIDE
+            </button>
+        </div>
+
+        <div class="relative w-full aspect-video rounded-xl overflow-hidden mb-4 border border-white/10 bg-black/50">
+            <img src="https://i.postimg.cc/3J0ZrvzN/825310048-455736171149778-6178008764780694098-n.png" class="w-full h-full object-cover" alt="Cover">
+        </div>
+
+        <div class="text-center mb-4">
+            <h3 class="font-bold text-base text-white tracking-wide font-header uppercase">WINNER</h3>
+            <p class="text-xs text-gray-400 font-mono mt-0.5">1MILL</p>
+        </div>
+
+        <div class="space-y-1 mb-5">
+            <input type="range" id="seekSlider" value="0" min="0" max="100" class="w-full h-1 bg-white/20 rounded-lg appearance-none cursor-pointer accent-red-500">
+            <div class="flex justify-between text-[10px] text-gray-400 font-mono">
+                <span id="currentTime">0:00</span>
+                <span id="durationTime">0:00</span>
+            </div>
+        </div>
+
+        <div class="flex justify-center mb-5">
+            <button id="expPlayBtn" class="w-14 h-14 rounded-2xl bg-white text-black flex items-center justify-center hover:scale-105 transition cursor-pointer shadow-lg">
+                <i id="expPlayIcon" class="fa-solid fa-play text-lg"></i>
+            </button>
+        </div>
+
+        <div class="flex items-center gap-3 pt-3 border-t border-white/10">
+            <i id="volumeIcon" class="fa-solid fa-volume-high text-xs text-gray-400 w-4 text-center"></i>
+            <input type="range" id="volumeSlider" value="70" min="0" max="100" class="w-full h-1 bg-white/20 rounded-lg appearance-none cursor-pointer accent-white">
+        </div>
+    </div>
+
+    <!-- 2. มินิการ์ดมุมขวาล่าง -->
+    <div id="miniPlayer" class="fixed bottom-6 right-6 z-40 bg-black/85 backdrop-blur-md px-4 py-3 rounded-xl border border-white/15 flex items-center space-x-4 shadow-2xl">
+        <div onclick="togglePlayerView()" class="relative group cursor-pointer">
+            <img src="https://i.postimg.cc/3J0ZrvzN/825310048-455736171149778-6178008764780694098-n.png" class="w-10 h-10 rounded-lg object-cover border border-white/15 group-hover:opacity-75 transition" alt="Album Art">
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                <i class="fa-solid fa-expand text-xs text-white"></i>
+            </div>
+        </div>
+        <div onclick="togglePlayerView()" class="cursor-pointer">
+            <h4 class="text-xs font-bold text-gray-100 tracking-wider font-header">WINNER</h4>
+            <p class="text-[10px] text-gray-400 font-mono">1MILL</p>
+        </div>
+        <button id="miniPlayBtn" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 border border-white/15 flex items-center justify-center text-white transition cursor-pointer">
+            <i id="miniPlayIcon" class="fa-solid fa-play text-xs"></i>
+        </button>
+    </div>
+
+
+    <!-- ==================== SCRIPTS & ROUTING ==================== -->
+    <script>
+        function switchView(viewName, pushHistory = true) {
+            document.getElementById('viewHome').classList.add('hidden');
+            document.getElementById('viewTraphouse').classList.add('hidden');
+            document.getElementById('viewNaygao').classList.add('hidden');
+
+            let path = "./";
+            if (viewName === 'home') {
+                document.getElementById('viewHome').classList.remove('hidden');
+                path = "./";
+            } else if (viewName === 'traphouse') {
+                document.getElementById('viewTraphouse').classList.remove('hidden');
+                path = "traphouse";
+            } else if (viewName === 'naygao') {
+                document.getElementById('viewNaygao').classList.remove('hidden');
+                path = "naygao";
+            }
+
+            if (pushHistory) {
+                history.pushState({ view: viewName }, "", path);
+            }
+            window.scrollTo(0, 0);
+        }
+
+        function startMusic() {
+            if (audio.paused) {
+                audio.play().then(() => {
+                    miniPlayIcon.className = "fa-solid fa-pause text-xs";
+                    expPlayIcon.className = "fa-solid fa-pause text-lg";
+                }).catch(error => {
+                    console.log("Autoplay prevented");
+                });
+            }
+        }
+
+        window.addEventListener('popstate', (event) => {
+            const route = event.state ? event.state.view : 'home';
+            switchView(route, false);
+        });
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const currentPath = window.location.pathname;
+            if (currentPath.includes('traphouse')) {
+                switchView('traphouse', false);
+            } else if (currentPath.includes('naygao')) {
+                switchView('naygao', false);
+            } else {
+                switchView('home', false);
+            }
+        });
+
+        const audio = document.getElementById("bgAudio");
+        const miniPlayBtn = document.getElementById("miniPlayBtn");
+        const miniPlayIcon = document.getElementById("miniPlayIcon");
+        const expPlayBtn = document.getElementById("expPlayBtn");
+        const expPlayIcon = document.getElementById("expPlayIcon");
+        const volumeSlider = document.getElementById("volumeSlider");
+        const volumeIcon = document.getElementById("volumeIcon");
+        const seekSlider = document.getElementById("seekSlider");
+        const currentTimeEl = document.getElementById("currentTime");
+        const durationTimeEl = document.getElementById("durationTime");
+
+        audio.volume = 0.7;
+
+        function togglePlayerView() {
+            document.getElementById("expandedPlayer").classList.toggle("hidden");
+            document.getElementById("miniPlayer").classList.toggle("hidden");
+        }
+
+        function togglePlay() {
+            if (audio.paused) {
+                audio.play();
+                miniPlayIcon.className = "fa-solid fa-pause text-xs";
+                expPlayIcon.className = "fa-solid fa-pause text-lg";
+            } else {
+                audio.pause();
+                miniPlayIcon.className = "fa-solid fa-play text-xs";
+                expPlayIcon.className = "fa-solid fa-play text-lg";
+            }
+        }
+
+        miniPlayBtn.addEventListener("click", togglePlay);
+        expPlayBtn.addEventListener("click", togglePlay);
+
+        volumeSlider.addEventListener("input", (e) => {
+            const val = e.target.value / 100;
+            audio.volume = val;
+            if (val === 0) {
+                volumeIcon.className = "fa-solid fa-volume-xmark text-xs text-gray-500 w-4 text-center";
+            } else if (val < 0.5) {
+                volumeIcon.className = "fa-solid fa-volume-low text-xs text-gray-400 w-4 text-center";
+            } else {
+                volumeIcon.className = "fa-solid fa-volume-high text-xs text-gray-400 w-4 text-center";
+            }
+        });
+
+        audio.addEventListener("timeupdate", () => {
+            if (!isNaN(audio.duration)) {
+                const progress = (audio.currentTime / audio.duration) * 100;
+                seekSlider.value = progress;
+                currentTimeEl.innerText = formatTime(audio.currentTime);
+                durationTimeEl.innerText = formatTime(audio.duration);
+            }
+        });
+
+        seekSlider.addEventListener("input", (e) => {
+            const seekTime = (e.target.value / 100) * audio.duration;
+            audio.currentTime = seekTime;
+        });
+
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        }
+    </script>
+
+
+    <!-- ==================== FIREBASE DATA SCRIPT ==================== -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getFirestore, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAtytnmXbYfsj_sly0_EmkkKl6k-Id1JYJ",
+            authDomain: "traphouse-3fe08.firebaseapp.com",
+            projectId: "traphouse-3fe08",
+            storageBucket: "traphouse-3fe08.firebasestorage.app",
+            messagingSenderId: "1094397727575",
+            appId: "1:1094397727575:web:426588a01eb476e99a2412"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // โลโก้แก๊งสำหรับใช้อย่างเป็นทางการ
+        const DEFAULT_LOGO = 'https://i.postimg.cc/3J0ZrvzN/825310048-455736171149778-6178008764780694098-n.png';
+
+        function generateCardHTML(m, isNaygao = false) {
+            const roleText = m.role ? m.role.toUpperCase() : (isNaygao ? 'PARTNER' : 'MEMBER');
+            // ใช้รูปโลโก้ TRAPHOUSE เป็นรูปโปรไฟล์หลักสำหรับทุกคน
+            const avatarImg = DEFAULT_LOGO;
+            
+            return `
+                <div class="member-card p-4 rounded-2xl flex items-center justify-between">
+                    <div class="flex items-center space-x-4 overflow-hidden">
+                        <div class="relative shrink-0">
+                            <img src="${avatarImg}" class="w-14 h-14 rounded-xl object-cover border border-white/20 p-1 bg-black/40" onerror="this.src='${DEFAULT_LOGO}'">
+                        </div>
+                        <div class="overflow-hidden">
+                            <div class="text-[10px] font-mono tracking-widest text-gray-400 uppercase mb-0.5">${roleText}</div>
+                            <h3 class="font-bold text-base text-gray-100 truncate">${m.name || 'UNNAMED'}</h3>
+                        </div>
+                    </div>
+                    ${m.facebook ? `
+                        <a href="${m.facebook}" target="_blank" class="shrink-0 w-9 h-9 rounded-xl bg-white/5 hover:bg-white/15 border border-white/15 flex items-center justify-center text-gray-300 hover:text-white transition ml-3">
+                            <i class="fa-brands fa-facebook-f text-xs"></i>
+                        </a>
+                    ` : ''}
+                </div>
+            `;
+        }
+
+        // --- 1. TRAPHOUSE ---
+        let allMembers = [];
+        const membersRef = collection(db, "members");
+
+        function renderRoster(searchQuery = "") {
+            const gridFounder = document.getElementById("gridFounder");
+            const gridLeader = document.getElementById("gridLeader");
+            const gridMember = document.getElementById("gridMember");
+
+            gridFounder.innerHTML = ""; gridLeader.innerHTML = ""; gridMember.innerHTML = "";
+            let cF = 0, cL = 0, cM = 0;
+            const queryLower = searchQuery.toLowerCase().trim();
+
+            let htmlFounder = "", htmlLeader = "", htmlMember = "";
+
+            allMembers.forEach((m) => {
+                if (queryLower && !m.name.toLowerCase().includes(queryLower) && !m.role.toLowerCase().includes(queryLower)) return;
+
+                const roleLower = (m.role || "").toLowerCase();
+                const cardHTML = generateCardHTML(m, false);
+
+                if (roleLower.includes("founder")) { htmlFounder += cardHTML; cF++; }
+                else if (roleLower.includes("leader")) { htmlLeader += cardHTML; cL++; }
+                else { htmlMember += cardHTML; cM++; }
+            });
+
+            gridFounder.innerHTML = htmlFounder || `<div class="text-gray-500 text-xs italic py-2">ไม่มีข้อมูลสมาชิก</div>`;
+            gridLeader.innerHTML = htmlLeader || `<div class="text-gray-500 text-xs italic py-2">ไม่มีข้อมูลสมาชิก</div>`;
+            gridMember.innerHTML = htmlMember || `<div class="text-gray-500 text-xs italic py-2">ไม่มีข้อมูลสมาชิก</div>`;
+
+            document.getElementById("titleFounder").innerText = `FOUNDERS (${cF})`;
+            document.getElementById("titleLeader").innerText = `LEADERS (${cL})`;
+            document.getElementById("titleMember").innerText = `MEMBERS (${cM})`;
+        }
+
+        onSnapshot(membersRef, (snapshot) => {
+            allMembers = [];
+            snapshot.forEach(docSnap => allMembers.push(docSnap.data()));
+            renderRoster(document.getElementById("searchRoster").value);
+        });
+
+        document.getElementById("searchRoster").addEventListener("input", (e) => renderRoster(e.target.value));
+
+
+        // --- 2. NAYGAO ---
+        let allNaygao = [];
+        const naygaoRef = collection(db, "naygao");
+
+        function renderNaygao(searchQuery = "") {
+            const gridFounder = document.getElementById("naygaoGridFounder");
+            const gridLeader = document.getElementById("naygaoGridLeader");
+            const gridMember = document.getElementById("naygaoGridMember");
+
+            gridFounder.innerHTML = ""; gridLeader.innerHTML = ""; gridMember.innerHTML = "";
+            let cF = 0, cL = 0, cM = 0;
+            const queryLower = searchQuery.toLowerCase().trim();
+
+            let htmlFounder = "", htmlLeader = "", htmlMember = "";
+
+            allNaygao.forEach((m) => {
+                if (queryLower && !m.name.toLowerCase().includes(queryLower) && !m.role.toLowerCase().includes(queryLower)) return;
+
+                const roleLower = (m.role || "").toLowerCase();
+                const cardHTML = generateCardHTML(m, true);
+
+                if (roleLower.includes("founder")) { htmlFounder += cardHTML; cF++; }
+                else if (roleLower.includes("leader")) { htmlLeader += cardHTML; cL++; }
+                else { htmlMember += cardHTML; cM++; }
+            });
+
+            gridFounder.innerHTML = htmlFounder || `<div class="text-gray-500 text-xs italic py-2">ไม่มีข้อมูลพาร์ทเนอร์</div>`;
+            gridLeader.innerHTML = htmlLeader || `<div class="text-gray-500 text-xs italic py-2">ไม่มีข้อมูลพาร์ทเนอร์</div>`;
+            gridMember.innerHTML = htmlMember || `<div class="text-gray-500 text-xs italic py-2">ไม่มีข้อมูลพาร์ทเนอร์</div>`;
+
+            document.getElementById("naygaoTitleFounder").innerText = `FOUNDERS (${cF})`;
+            document.getElementById("naygaoTitleLeader").innerText = `LEADERS (${cL})`;
+            document.getElementById("naygaoTitleMember").innerText = `MEMBERS (${cM})`;
+        }
+
+        onSnapshot(naygaoRef, (snapshot) => {
+            allNaygao = [];
+            snapshot.forEach(docSnap => allNaygao.push(docSnap.data()));
+            renderNaygao(document.getElementById("searchNaygao").value);
+        });
+
+        document.getElementById("searchNaygao").addEventListener("input", (e) => renderNaygao(e.target.value));
+    </script>
+</body>
+</html>
